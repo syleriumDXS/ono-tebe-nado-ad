@@ -1,1 +1,340 @@
-/* место для вашего кода */
+:root {
+  --black: #000;
+  --white: #fff;
+}
+
+/* Служебные */
+.page {
+  color: var(--black);
+  background: var(--white);
+  overflow-x: clip;
+}
+
+nav, section, div {
+    border: 1px red solid;
+}
+address {
+  font-style: normal;
+  line-height: 1.3;
+  font-size: 18px;
+}
+
+.address__link {
+  text-decoration: none;
+  font-size: 18px;
+}
+
+/* универсальный overlay для cover и карточек */
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+}
+
+/* =============== HEADER =============== */
+.header {
+  display: grid;
+  grid-template-columns: 1fr min-content 1fr; /* меню — логотип — адрес */
+  align-items: center;
+  padding-top: 133px;            /* 133 сверху */
+  padding-block: 88px;
+}
+
+.header__menu{
+  justify-self: start;  
+  align-self: center;         /* к началу левой колонки */
+  margin-left: 50px;            /* 50 слева */
+  
+}
+
+.header__links-list {
+  display: flex;
+  gap: 32px;
+  list-style: circle;
+   /* чтоб было место под маркеры */
+  margin: 0;
+}
+
+.header__links-list-item_no-bullit {
+  list-style: none;
+}
+
+.header__link {
+  text-decoration: none;
+  font-size: 18px;
+}
+
+.header__link_active {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  text-decoration-thickness: 1px;
+}
+
+.header__logo {
+  display: block;
+  width: 148px; /* калибруется по пиксель-перфекту */
+}
+
+.header__logo-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  
+}
+
+.header__address {
+  justify-self: end;
+  align-self: start;
+  margin-top: 6px;
+  max-width: 240px;
+  margin-right: 90px;
+  line-height: 1.45;
+}
+
+/* =============== COVER =============== */
+.cover {
+  position: relative;
+  background: url("../images/cover.jpg") center / cover no-repeat;
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+  color: var(--white);
+  padding: 175px 50px 45px; /* верх — под высоту заголовка, низ — под кнопку */
+}
+
+.cover__title {
+  position: relative;
+  z-index: 1;
+  font-weight: bold;
+  font-size: 100px;     /* доводи под макет */
+  line-height: 1.05;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  
+  
+}
+
+
+.aligned-text {
+  display: block;
+  text-align: left;
+  font-weight: 700;
+  letter-spacing: 0.3em;
+  
+}
+.aligned-text_center { 
+  text-align: center;
+  margin-top: 25px;
+  margin-left: 22px;
+ }
+
+.aligned-text_right  { 
+  text-align: right;
+  margin-top: 30px;
+  margin-right: -30px;
+   }
+
+
+.cover__description {
+  position: relative;
+  z-index: 1;
+  margin-top: 115px;          /* довести по плагину */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+
+}
+
+.cover__description-text {
+  text-transform: uppercase;
+  word-spacing: 18px;  
+  font-size: 22px;  
+  line-height: 28px; 
+  font-weight: 400;  
+        /* в макете межсловный интервал увеличен */
+}
+
+.bet-button {
+  display: inline-block;
+  padding: 12px 32px;
+  border: 1px solid var(--white);
+  background: transparent;
+  color: var(--white);
+  text-transform: uppercase;
+  text-decoration: none;
+  font-size: 22px;
+  cursor: pointer;
+}
+
+/* =============== LOTS =============== */
+.lots {
+  margin-top: 182px;
+}
+
+.lots__heading {
+  font-weight: 700;
+  font-size: 40px;
+  text-transform: uppercase;
+  margin-bottom: 24px;
+  margin-left: 65px;
+}
+
+.lots__card-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 25px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  padding-inline: 25px;
+}
+
+.lots__card-list-item {
+  flex: 0 0 calc((100% - 50px) / 3); /* 3 колонки при 2 промежутках по 25 */
+  min-height: 596px;
+}
+
+.card-link {
+  display: block;
+  height: 100%;
+  color: inherit;
+  text-decoration: none;
+}
+
+.card {
+  position: relative;
+  height: 100%;
+  padding: 50px 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  color: var(--white);
+  background-position: center;
+  background-size: cover;
+}
+
+.card_type_film    { background-image: url("../images/card-lot-01.jpg"); }
+.card_type_book    { background-image: url("../images/card-lot-02.jpg"); }
+.card_type_picture { background-image: url("../images/card-lot-03.jpg"); }
+
+.card__title {
+  position: relative;
+  z-index: 1;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  font-size: 22px;
+}
+
+.card__text {
+  position: relative;
+  z-index: 1;
+  font-size: 20px;
+}
+
+.lots__look-more-link {
+  display: inline-block;
+  margin-top: 30px;
+  text-decoration: none;
+  border-bottom: 1px solid currentColor;
+  line-height: 25px;
+  font-size: 20px;
+  margin-left: 62px;
+}
+
+/* =============== ABOUT =============== */
+.about {
+  margin-top: 165px;
+  display: grid;
+  grid-template-columns: 1fr 2fr; /* левая как карточка, правая — остальное */
+  gap: 25px;
+  align-items: start;
+}
+
+.about__logo {
+  width: 240px;
+  height: 240px;
+  border-radius: 50%;
+  background: var(--black);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: -13px auto 0;
+}
+
+.about__logo-image {
+  width: 148px;
+  height: auto;
+  display: block;
+}
+
+.about__title {
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 40px;
+  margin: 90px 0 95px; /* выравниваем по центру круга слева */
+}
+
+.about__text {
+    font-size: 20px;
+}
+
+.about__text p + p {
+  margin-top: 24px; /* отступ только между абзацами */
+  
+}
+
+
+/* =============== FOOTER =============== */
+.footer {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  align-items: start;
+  gap: 20px;
+  padding-block: 135px;
+}
+
+.footer__address {
+  justify-self: start;
+  max-width: 240px;
+  margin-left: 50px;
+  margin-top: 47px;
+}
+
+.footer__menu { 
+  justify-self: center; 
+}
+
+.footer__menu-list {
+  list-style: none;
+  margin-top: 45px;   
+  text-align: center;
+}
+
+.footer__menu-link {
+  text-decoration: none;
+  font-size: 18px;
+}
+
+.footer__menu-link_active { 
+text-decoration: underline;
+text-underline-offset: 4px;
+text-decoration-thickness: 1px;
+}
+
+.footer__social-list {
+  list-style: none;
+  justify-self: end;
+  display: flex;
+  gap: 48px;
+  margin-right: 50px;
+  margin-top: 45px;
+}
+
+.footer__social-icon {
+  width: 48px;
+  height: 48px;
+  display: block;
+}
