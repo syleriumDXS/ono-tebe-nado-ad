@@ -36,7 +36,7 @@ address {
   display: grid;
   grid-template-columns: 1fr min-content 1fr; /* меню — логотип — адрес */
   align-items: center;
-  padding-top: 133px;            /* 133 сверху */
+  padding-top: 133px;           
   padding-block: 88px;
 }
 
